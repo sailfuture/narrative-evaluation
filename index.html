@@ -303,55 +303,78 @@
 </body>
 
 <script>
-function generateEvaluation() {
-    const studentName = document.querySelector('#listbox-label-student + div button').textContent;
-    const teacherName = document.querySelector('#listbox-label-teacher + div button').textContent;
-    const tone = document.querySelector('#listbox-label-tone + div button').textContent;
-    const term = document.querySelector('#listbox-label-term + div button').textContent;
-    const teacherNotes = document.getElementById('teacherNotes').value;
-
-    // Construct key area scores string
-    let keyAreaScores = [
-        `Writing/Reading: ${document.getElementById('writingReadingScore').value}`,
-        `Math Understanding/Application: ${document.getElementById('mathUnderstandingScore').value}`,
-        // Add other key areas here
-    ].join('\n');
-
-    let evaluationText = `Narrative evaluation for ${term}, student name ${studentName}, from ${teacherName}. The sentiment of the written evaluation will be ${tone}.\n\n${keyAreaScores}\n\nTeacher's notes: ${teacherNotes}`;
-
-    document.getElementById('evaluationOutput').innerText = evaluationText;
-}
-
-
-// Don't forget to initialize the dropdown for the term
-initializeDropdown('term', 'Select Term');
-
-
-document.getElementById('copyToClipboard').addEventListener('click', function() {
-    const evaluationText = document.getElementById('evaluationOutput').innerText;
-    if (!evaluationText) {
-        alert('Nothing to copy!');
-        return;
-    }
-    
-    navigator.clipboard.writeText(evaluationText).then(() => {
-        alert('Text copied to clipboard');
-    }).catch(err => {
-        console.error('Error in copying text: ', err);
+    document.addEventListener('DOMContentLoaded', () => {
+        initializeDropdown('studentName', 'Select Student');
+        initializeDropdown('teacherName', 'Select Teacher');
+        initializeDropdown('tone', 'Select Tone');
+        document.getElementById('generateEvaluation').addEventListener('click', generateEvaluation);
+        document.getElementById('copyToClipboard').addEventListener('click', copyToClipboard);
+        document.getElementById('termButton').addEventListener('click', toggleTermDropdown);
     });
-});
 
-document.getElementById('termButton').addEventListener('click', function() {
-    document.querySelector('#listbox-label-term + div ul').classList.toggle('hidden');
-});
+    function generateEvaluation() {
+        const studentName = document.querySelector('#listbox-label-student + div button').textContent;
+        const teacherName = document.querySelector('#listbox-label-teacher + div button').textContent;
+        const tone = document.querySelector('#listbox-label-tone + div button').textContent;
+        const term = document.getElementById('termButton').textContent;
+        const teacherNotes = document.getElementById('teacherNotes').value;
 
-function selectTerm(term) {
-    document.getElementById('termButton').querySelector('span').textContent = term;
-    document.querySelector('#listbox-label-term + div ul').classList.add('hidden');
-}
+        // Construct key area scores string
+        let keyAreaScores = [
+            `Writing/Reading: ${document.getElementById('writingReadingScore').value}`,
+            `Math Understanding/Application: ${document.getElementById('mathUnderstandingScore').value}`,
+            // Add other key areas here
+        ].join('\n');
 
+        let evaluationText = `Narrative evaluation for ${term}, student name ${studentName}, from ${teacherName}. The sentiment of the written evaluation will be ${tone}.\n\n${keyAreaScores}\n\nTeacher's notes: ${teacherNotes}`;
 
+        document.getElementById('evaluationOutput').innerText = evaluationText;
+    }
+
+    function copyToClipboard() {
+        const evaluationText = document.getElementById('evaluationOutput').innerText;
+        if (!evaluationText) {
+            alert('Nothing to copy!');
+            return;
+        }
+        
+        navigator.clipboard.writeText(evaluationText).then(() => {
+            alert('Text copied to clipboard');
+        }).catch(err => {
+            console.error('Error in copying text: ', err);
+        });
+    }
+
+    function toggleTermDropdown() {
+        document.querySelector('#listbox-label-term + div ul').classList.toggle('hidden');
+    }
+
+    function selectTerm(term) {
+        document.getElementById('termButton').textContent = term;
+        document.querySelector('#listbox-label-term + div ul').classList.add('hidden');
+    }
+
+    function initializeDropdown(dropdownId, defaultText) {
+        const dropdown = document.getElementById(dropdownId);
+        const button = dropdown.querySelector('button');
+        const list = dropdown.querySelector('ul');
+        const options = list.querySelectorAll('li');
+
+        button.innerText = defaultText;
+
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                button.innerText = option.textContent;
+                list.classList.add('hidden'); // Hide the list after selection
+            });
+        });
+
+        button.addEventListener('click', () => {
+            list.classList.toggle('hidden'); // Toggle list visibility
+        });
+    }
 </script>
+
 
 </html>
 
