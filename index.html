@@ -248,15 +248,11 @@
     evaluationText += `Conduct Adherence to Rules: ${conduct}\n`;
     evaluationText += `Peer Interaction	Quality of Interaction: ${peers}\n`;
     evaluationText += `Teacher Interaction: ${teacher}\n`;
-    // ...append other criteria similarly
 
     evaluationText += `\nUse the following specific notes and teacher feedback to guide and craft the evaluation: ${teacherNotes}`;
 
     // Display the evaluation
     document.getElementById("evaluationOutput").innerHTML = evaluationText.replace(/\n/g, "<br>");
-
-        // Display the evaluation
-        document.getElementById("evaluationOutput").innerHTML = evaluationText.replace(/\n/g, "<br>");
 
 // Show the copy button
 document.getElementById("copyButton").style.display = "block";
@@ -278,7 +274,6 @@ document.body.removeChild(textArea);
 
 // Optional: Show a message that the text was copied
 alert("Evaluation copied to clipboard!");
-}
 }
 </script>
 </body>
