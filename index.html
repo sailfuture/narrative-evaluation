@@ -16,6 +16,7 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
 </head>
 <body>
     <div class="container">
+        <div class="container">
     <h1>Student Evaluation Prompt Generator</h1>
     <form id="evaluationForm">
         <!-- Dropdowns for Student Name, Teacher Name, and Term -->
@@ -244,16 +245,21 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
         </div>
 
         <!-- Submission button -->
-        <button type="button" onclick="generateEvaluation()">Generate Evaluation</button>
+        <button type="button" class="btn btn-primary" onclick="generateEvaluation()">Generate Evaluation</button>
     </form>
+</div>
 
-
-<h1>Generated Prompt (see below)</h1>
 <!-- Area to display the generated evaluation -->
-<div id="evaluationOutput"></div>
+
+<div class="card">
+    <h5 class="card-title">Generated Prompt (see below)</h5>
+    <div class="card-body">
+        <div id="evaluationOutput"></div>
+    </div>
+  </div>
 
 <!-- Button to copy the generated evaluation -->
-<button id="copyButton" style="display: none;" onclick="copyToClipboard()">Copy Prompt</button>
+<button id="copyButton" style="display: none;" class="btn btn-success" onclick="copyToClipboard()">Copy Prompt</button>
 </div>
 
     <!-- Linking the JavaScript file -->
