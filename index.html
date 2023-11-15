@@ -7,14 +7,85 @@
     <h1>Student Evaluation Form</h1>
     <form id="evaluationForm">
         <!-- Dropdowns for Student Name, Teacher Name, and Term -->
-        <select id="studentName">
-            <!-- Options for Student Names -->
-        </select>
+        <div>
+            <label>Student Name:</label>
+            <select id="studentName">
+                <option value="Arnie Sillins">Arnie Sillins</option>
+                <option value="Dareeon Booth">Dareeon Booth</option>
+                <option value="Frederick Johnson">Frederick Johnson</option>
+                <option value="Jordan Kossler">Jordan Kossler</option>
+                <option value="Pedro Garcia">Pedro Garcia</option>
+                <option value="Jeremiah King">Jeremiah King</option>
+                <option value="Mason Smith">Mason Smith</option>
+                <option value="Careem Parfitt">Careem Parfitt</option>
+                <option value="Daquelon Brown">Daquelon Brown</option>
+                <option value="Jayden Keller">Jayden Keller</option>
+                <option value="Latrez Madison">Latrez Madison</option>
+                <option value="Roshad Smith">Roshad Smith</option>
+                <option value="Reginald Booth">Reginald Booth</option>
+                <option value="Anthony Wohlford">Anthony Wohlford</option>
+                <option value="Cayden Reynolds">Cayden Reynolds</option>
+                <option value="Gabrielle Roberts">Gabrielle Roberts</option>
+                <option value="Earl Moeller">Earl Moeller</option>
+                <option value="Dai'quan Carbart">Dai'quan Carbart</option>
+                <option value="Carla Ortiz">Carla Ortiz</option>
+                <option value="Amideus Kayne">Amideus Kayne</option>
+                <option value="Blaine Lubotina">Blaine Lubotina</option>
+                <option value="Brandon Spitzer">Brandon Spitzer</option>
+                <option value="Brince Johnson">Brince Johnson</option>
+                <option value="Deyah Derosier">Deyah Derosier</option>
+                <option value="Devin Mayo">Devin Mayo</option>
+                <option value="Elijah Ryan-Hallam">Elijah Ryan-Hallam</option>
+                <option value="Cale Meitzler">Cale Meitzler</option>
+                <option value="Camron Reynolds">Camron Reynolds</option>
+                <option value="Zachary Hanna">Zachary Hanna</option>
+                <option value="Malondea Williams">Malondea Williams</option>
+                <option value="Marvellous Hardemon">Marvellous Hardemon</option>
+                <option value="Matthew McKenzie">Matthew McKenzie</option>
+                <option value="Rajon Green">Rajon Green</option>
+                <option value="Connor Young">Connor Young</option>
+                <option value="Brian Best">Brian Best</option>
+                <option value="Dana Evans">Dana Evans</option>
+                <option value="Jerome Northern">Jerome Northern</option>
+                <option value="Kadin Adcock">Kadin Adcock</option>
+                <option value="Aleah Rodriguez">Aleah Rodriguez</option>
+                <option value="Anthony Sinanovic">Anthony Sinanovic</option>
+                <option value="Dominic Johnson">Dominic Johnson</option>
+                <option value="Jamarion Pitts">Jamarion Pitts</option>
+                <option value="Kamya Green">Kamya Green</option>
+                <option value="Khai Tran">Khai Tran</option>
+                <option value="Michael Damjanovic">Michael Damjanovic</option>
+                <option value="Robert Preston">Robert Preston</option>
+                <option value="Alexander Delarosa">Alexander Delarosa</option>
+                <option value="Chase Sauvageot">Chase Sauvageot</option>
+                <option value="Gregory Brown">Gregory Brown</option>
+                <option value="Justin Skinner">Justin Skinner</option>
+                <option value="La’Mya Fulwood">La’Mya Fulwood</option>
+                <option value="Robert Bias">Robert Bias</option>
+                <option value="Jamin Lynch">Jamin Lynch</option>
+                <option value="Michael Lamb">Michael Lamb</option>
+                <option value="Noah Grega">Noah Grega</option>
+                <option value="Ethan Dragon">Ethan Dragon</option>
+                <option value="Stephen Harper">Stephen Harper</option>
+                <option value="Jermaine Jones">Jermaine Jones</option>
+                <option value="Kevin Mojica-Lopez">Kevin Mojica-Lopez</option>
+                <option value="Larry Parker">Larry Parker</option>
+            </select>
+        </div>        
 
-        <select id="teacherName">
-            <!-- Options for Teacher Names -->
-        </select>
-
+        <div>
+            <label>Teacher Name:</label>
+            <select id="teacherName">
+                <option value="Mr. Huggins">Mr. Huggins</option>
+                <option value="Ms. Hubbard">Ms. Hubbard</option>
+                <option value="Captain Tony">Captain Tony</option>
+                <option value="Ms. Cece">Ms. Cece</option>
+                <option value="Ms. Ward">Ms. Ward</option>
+                <option value="Mr. Thompson">Mr. Thompson</option>
+            </select>
+        </div>
+        
+        <label>Term:</label>
         <select id="term">
             <option value="1">Term 1</option>
             <option value="2">Term 2</option>
@@ -25,6 +96,7 @@
 
         <!-- Dropdowns for each evaluation criteria -->
         <!-- Example for Writing/Reading Proficiency -->
+        <label>Writing/Reading:</label>
         <select id="writingReading">
             <option value="Excellent">Excellent</option>
             <option value="Good">Good</option>
@@ -32,15 +104,99 @@
             <option value="Needs Improvement">Needs Improvement</option>
         </select>
 
+        <label>Math	Understanding/Application</label>
+        <select id="math">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+        <label>Hands-On Learning</label>
+        <select id="handson">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+        <label>Attendance Consistency & Punctuality</label>
+        <select id="attendance">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+        <label>Time Management</label>
+        <select id="timemanagement">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+        <label>Effort Consistency & Quality</label>
+        <select id="effort">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+        <label>Maturity Level</label>
+        <select id="maturity">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+        <label>Conduct Adherence to Rules</label>
+        <select id="conduct">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+        <label>Peer Interaction	Quality of Interaction</label>
+        <select id="peers">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+        <label>Teacher Interaction</label>
+        <select id="teacher">
+            <option value="Excellent">Excellent</option>
+            <option value="Good">Good</option>
+            <option value="Fair">Fair</option>
+            <option value="Needs Improvement">Needs Improvement</option>
+        </select>
+
+
         <!-- Repeat similar dropdowns for other criteria -->
 
         <!-- Dropdown for Tone -->
-        <select id="tone">
-            <!-- Options for Tone -->
-        </select>
-
+            <div>
+                <label>Tone:</label>
+                <select id="tone">
+                    <option value="Encouraging and Supportive">Encouraging and Supportive</option>
+                    <option value="Constructive and Objective">Constructive and Objective</option>
+                    <option value="Thoughtful and Reflective">Thoughtful and Reflective</option>
+                    <option value="Serious and Concerned">Serious and Concerned</option>
+                    <option value="Motivational and Inspiring">Motivational and Inspiring</option>
+                    <option value="Compassionate and Understanding">Compassionate and Understanding</option>
+                </select>
+            </div>
+            
         <!-- Textbox for Teacher Notes -->
+        <div>
+        <label>Teacher Notes:</label>
         <textarea id="teacherNotes"></textarea>
+        </div>
 
         <!-- Submission button -->
         <button type="button" onclick="generateEvaluation()">Generate Evaluation</button>
@@ -65,6 +221,15 @@
     var teacherName = document.getElementById("teacherName").value;
     var term = document.getElementById("term").value;
     var writingReading = document.getElementById("writingReading").value;
+    var math = document.getElementById("math").value;
+    var handson = document.getElementById("handson").value;
+    var attendance = document.getElementById("attendance").value;
+    var timemanagement = document.getElementById("timemanagement").value;
+    var effort = document.getElementById("effort").value;
+    var maturity = document.getElementById("maturity").value;
+    var conduct = document.getElementById("conduct").value;
+    var teacher = document.getElementById("teacher").value;
+    var peers = document.getElementById("peers").value;
     // ...get other criteria values similarly
 
     var tone = document.getElementById("tone").value;
@@ -73,6 +238,16 @@
     // Construct the evaluation text
     var evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName} during Term ${term}. The tone and sentiment of the evaluation should be written in the following ${tone}. Here is a general overview of the student's performance: \n\n`;
     evaluationText += `Writing/Reading Proficiency Level: ${writingReading}\n`;
+    evaluationText += `Math	Understanding/Application: ${math}\n`;
+    evaluationText += `Writing/Reading Proficiency Level: ${writingReading}\n`;
+    evaluationText += `Hands-On Learning: ${handson}\n`;
+    evaluationText += `Attendance Consistency & Punctuality: ${attendance}\n`;
+    evaluationText += `Time Management: ${timemanagement}\n`;
+    evaluationText += `Effort Consistency & Quality: ${effort}\n`;
+    evaluationText += `Maturity Level: ${maturity}\n`;
+    evaluationText += `Conduct Adherence to Rules: ${conduct}\n`;
+    evaluationText += `Peer Interaction	Quality of Interaction: ${peers}\n`;
+    evaluationText += `Teacher Interaction: ${teacher}\n`;
     // ...append other criteria similarly
 
     evaluationText += `\nUse the following specific notes and teacher feedback to guide and craft the evaluation: ${teacherNotes}`;
