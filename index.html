@@ -86,23 +86,13 @@
         </select>
     </div>
 
-    <table id="evaluationMatrix">
-        <!-- Table Headers -->
-        <tr>
-            <th>Key Area</th>
-            <th>Subcategory</th>
-            <th>Scoring Criteria</th>
-            <th>Score</th>
-        </tr>
-
-        <!-- Each row corresponds to a category with a dropdown for scores -->
-        <!-- Repeat this structure for each category -->
+    <table>
+        <!-- Writing/Reading -->
         <tr>
             <td>Academics</td>
             <td>Writing/Reading</td>
-            <td>Proficiency Level</td>
             <td>
-                <select class="score">
+                <select id="writingReadingScore">
                     <option value="Excellent">Excellent</option>
                     <option value="Good">Good</option>
                     <option value="Fair">Fair</option>
@@ -110,13 +100,12 @@
                 </select>
             </td>
         </tr>
-
+        <!-- Math Understanding/Application -->
         <tr>
             <td>Academics</td>
             <td>Math Understanding/Application</td>
-            <td>Proficiency Level</td>
             <td>
-                <select class="score">
+                <select id="mathUnderstandingScore">
                     <option value="Excellent">Excellent</option>
                     <option value="Good">Good</option>
                     <option value="Fair">Fair</option>
@@ -124,120 +113,7 @@
                 </select>
             </td>
         </tr>
-
-        <tr>
-            <td>Academics</td>
-            <td>Hands-On Learning Engagement</td>
-            <td>Proficiency Level</td>
-            <td>
-                <select class="score">
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Needs Improvement">Needs Improvement</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Attendance</td>
-            <td>Class Attendance</td>
-            <td>Consistency & Punctuality</td>
-            <td>
-                <select class="score">
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Needs Improvement">Needs Improvement</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Professionalism</td>
-            <td>Time Management</td>
-            <td>Task Prioritization & Efficiency</td>
-            <td>
-                <select class="score">
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Needs Improvement">Needs Improvement</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Professionalism</td>
-            <td>Effort</td>
-            <td>Dedication Level Consistency & Quality</td>
-            <td>
-                <select class="score">
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Needs Improvement">Needs Improvement</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Professionalism</td>
-            <td>Maturity</td>
-            <td>Emotional/Social Maturity Level</td>
-            <td>
-                <select class="score">
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Needs Improvement">Needs Improvement</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Behavior</td>
-            <td>Conduct</td>
-            <td>Adherence to Rules</td>
-            <td>
-                <select class="score">
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Needs Improvement">Needs Improvement</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Behavior</td>
-            <td>Peer Interaction</td>
-            <td>Quality of Interaction</td>
-            <td>
-                <select class="score">
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Needs Improvement">Needs Improvement</option>
-                </select>
-            </td>
-        </tr>
-
-        <tr>
-            <td>Behavior</td>
-            <td>Teacher Interaction</td>
-            <td>Respectfulness</td>
-            <td>
-                <select class="score">
-                    <option value="Excellent">Excellent</option>
-                    <option value="Good">Good</option>
-                    <option value="Fair">Fair</option>
-                    <option value="Needs Improvement">Needs Improvement</option>
-                </select>
-            </td>
-        </tr>
-        
-        <!-- Add other categories in similar fashion -->
+        <!-- Additional categories... -->
     </table>
 
     <div>
@@ -278,12 +154,22 @@ document.getElementById('generateEvaluation').addEventListener('click', function
     const teacherName = document.getElementById('teacherName').value;
     const tone = document.getElementById('tone').value;
     const teacherNotes = document.getElementById('teacherNotes').value;
+    const writingReading = document.getElementById('writingReadingScore').value;
+    const mathUnderstanding = document.getElementById('mathUnderstandingScore').value;
+    // Add variables and logic for other categories here...
+
+    let outputText = ;
+    // Concatenate other categories to outputText...
+
+    document.getElementById('output').innerText = outputText; // Display the output in the UI
+}
+
 
     // Gather scores from each row in the matrix
     const scores = Array.from(document.querySelectorAll('#evaluationMatrix .score')).map(select => select.value);
 
     // Construct the evaluation text
-    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The tone and sentimate of this written evaluation should be ${tone}. The student generally performed according to these measurements: ${scores.join(', ')}. Teacher's notes: ${teacherNotes}`;
+    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The tone and sentimate of this written evaluation should be ${tone}. The student generally performed according to these measurements: ${scores.join(', ')}. Teachers notes: ${teacherNotes} Writing/Reading: ${writingReading}\nMath Understanding/Application: ${mathUnderstanding}`;
 
     // Output the evaluation
     document.getElementById('evaluationOutput').innerText = evaluationText;
