@@ -41,6 +41,17 @@
         </tr>
         <!-- Add other categories in similar fashion -->
     </table>
+    <div>
+        <label>Tone:</label>
+        <select id="tone">
+            <option value="Encouraging and Supportive">Encouraging and Supportive</option>
+            <option value="Constructive and Objective">Constructive and Objective</option>
+            <option value="Thoughtful and Reflective">Thoughtful and Reflective</option>
+            <option value="Serious and Concerned">Serious and Concerned</option>
+            <option value="Motivational and Inspiring">Motivational and Inspiring</option>
+            <option value="Compassionate and Understanding">Compassionate and Understanding</option>
+        </select>
+    </div>
 
     <div>
         <button id="generateEvaluation">Generate Evaluation</button>
@@ -56,12 +67,13 @@
 document.getElementById('generateEvaluation').addEventListener('click', function() {
     const studentName = document.getElementById('studentName').value;
     const teacherName = document.getElementById('teacherName').value;
+    const tone = document.getElementById('tone').value;
 
     // Gather scores from each row in the matrix
     const scores = Array.from(document.querySelectorAll('#evaluationMatrix .score')).map(select => select.value);
 
     // Construct the evaluation text
-    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The student generally performed according to these measurements: ${scores.join(', ')}.`;
+    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The sentiment of the written evaluation will be ${tone}. The student generally performed according to these measurements: ${scores.join(', ')}.`;
 
     // Output the evaluation
     document.getElementById('evaluationOutput').innerText = evaluationText;
