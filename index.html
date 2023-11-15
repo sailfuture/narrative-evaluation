@@ -8,70 +8,23 @@
     <h2>Student Evaluation Form</h2>
     <!-- Student Name -->
     <div>
-        <label>Student Name:</label>
-        <select id="studentName">
-            <option value="Arnie Sillins">Arnie Sillins</option>
-            <option value="Dareeon Booth">Dareeon Booth</option>
-            <option value="Frederick Johnson">Frederick Johnson</option>
-            <option value="Jordan Kossler">Jordan Kossler</option>
-            <option value="Pedro Garcia">Pedro Garcia</option>
-            <option value="Jeremiah King">Jeremiah King</option>
-            <option value="Mason Smith">Mason Smith</option>
-            <option value="Careem Parfitt">Careem Parfitt</option>
-            <option value="Daquelon Brown">Daquelon Brown</option>
-            <option value="Jayden Keller">Jayden Keller</option>
-            <option value="Latrez Madison">Latrez Madison</option>
-            <option value="Roshad Smith">Roshad Smith</option>
-            <option value="Reginald Booth">Reginald Booth</option>
-            <option value="Anthony Wohlford">Anthony Wohlford</option>
-            <option value="Cayden Reynolds">Cayden Reynolds</option>
-            <option value="Gabrielle Roberts">Gabrielle Roberts</option>
-            <option value="Earl Moeller">Earl Moeller</option>
-            <option value="Dai'quan Carbart">Dai'quan Carbart</option>
-            <option value="Carla Ortiz">Carla Ortiz</option>
-            <option value="Amideus Kayne">Amideus Kayne</option>
-            <option value="Blaine Lubotina">Blaine Lubotina</option>
-            <option value="Brandon Spitzer">Brandon Spitzer</option>
-            <option value="Brince Johnson">Brince Johnson</option>
-            <option value="Deyah Derosier">Deyah Derosier</option>
-            <option value="Devin Mayo">Devin Mayo</option>
-            <option value="Elijah Ryan-Hallam">Elijah Ryan-Hallam</option>
-            <option value="Cale Meitzler">Cale Meitzler</option>
-            <option value="Camron Reynolds">Camron Reynolds</option>
-            <option value="Zachary Hanna">Zachary Hanna</option>
-            <option value="Malondea Williams">Malondea Williams</option>
-            <option value="Marvellous Hardemon">Marvellous Hardemon</option>
-            <option value="Matthew McKenzie">Matthew McKenzie</option>
-            <option value="Rajon Green">Rajon Green</option>
-            <option value="Connor Young">Connor Young</option>
-            <option value="Brian Best">Brian Best</option>
-            <option value="Dana Evans">Dana Evans</option>
-            <option value="Jerome Northern">Jerome Northern</option>
-            <option value="Kadin Adcock">Kadin Adcock</option>
-            <option value="Aleah Rodriguez">Aleah Rodriguez</option>
-            <option value="Anthony Sinanovic">Anthony Sinanovic</option>
-            <option value="Dominic Johnson">Dominic Johnson</option>
-            <option value="Jamarion Pitts">Jamarion Pitts</option>
-            <option value="Kamya Green">Kamya Green</option>
-            <option value="Khai Tran">Khai Tran</option>
-            <option value="Michael Damjanovic">Michael Damjanovic</option>
-            <option value="Robert Preston">Robert Preston</option>
-            <option value="Alexander Delarosa">Alexander Delarosa</option>
-            <option value="Chase Sauvageot">Chase Sauvageot</option>
-            <option value="Gregory Brown">Gregory Brown</option>
-            <option value="Justin Skinner">Justin Skinner</option>
-            <option value="La’Mya Fulwood">La’Mya Fulwood</option>
-            <option value="Robert Bias">Robert Bias</option>
-            <option value="Jamin Lynch">Jamin Lynch</option>
-            <option value="Michael Lamb">Michael Lamb</option>
-            <option value="Noah Grega">Noah Grega</option>
-            <option value="Ethan Dragon">Ethan Dragon</option>
-            <option value="Stephen Harper">Stephen Harper</option>
-            <option value="Jermaine Jones">Jermaine Jones</option>
-            <option value="Kevin Mojica-Lopez">Kevin Mojica-Lopez</option>
-            <option value="Larry Parker">Larry Parker</option>
-        </select>
-    </div>
+        <label id="listbox-label-student" class="block text-sm font-medium leading-6 text-gray-900">Student Name</label>
+        <div class="relative mt-2">
+          <button type="button" class="relative w-full cursor-default rounded-md bg-white py-1.5 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-600 sm:text-sm sm:leading-6" aria-haspopup="listbox" aria-expanded="true" aria-labelledby="listbox-label-student">
+            <span class="block truncate">Select Student</span>
+            <!-- SVG and styles -->
+          </button>
+          <ul class="absolute z-10 mt-1 max-h-60 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm" tabindex="-1" role="listbox" aria-labelledby="listbox-label-student">
+            <!-- Student Names -->
+            <!-- Repeat this structure for each student name -->
+            <li class="text-gray-900 relative cursor-default select-none py-2 pl-3 pr-9" id="listbox-option-student-0" role="option">
+              <span class="font-normal block truncate">Arnie Sillins</span>
+              <!-- SVG for selected item -->
+            </li>
+            <!-- More student names... -->
+          </ul>
+        </div>
+      </div>      
     <!-- Teacher Name -->
     <div>
             <label>Teacher Name:</label>
