@@ -262,6 +262,12 @@
 
     <div id="evaluationOutput"></div>
 
+    <div>
+        <button id="copyToClipboard" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+            Copy to Clipboard
+        </button>
+    </div>
+
 </body>
 
 <script>
@@ -279,6 +285,20 @@ document.getElementById('generateEvaluation').addEventListener('click', function
 
     // Output the evaluation
     document.getElementById('evaluationOutput').innerText = evaluationText;
+});
+
+document.getElementById('copyToClipboard').addEventListener('click', function() {
+    const evaluationText = document.getElementById('evaluationOutput').innerText;
+    if (!evaluationText) {
+        alert('Nothing to copy!');
+        return;
+    }
+    
+    navigator.clipboard.writeText(evaluationText).then(() => {
+        alert('Text copied to clipboard');
+    }).catch(err => {
+        console.error('Error in copying text: ', err);
+    });
 });
 
 </script>
