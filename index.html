@@ -141,18 +141,45 @@
 </html>
 
 <script>
-document.getElementById('generateEvaluation').addEventListener('click', function() {
-    const studentName = document.getElementById('studentName').value;
-    const teacherName = document.getElementById('teacherName').value;
-    const tone = document.getElementById('tone').value;
-
-    // Gather scores from each row in the matrix
-    const scores = Array.from(document.querySelectorAll('#evaluationMatrix .score')).map(select => select.value);
-
-    // Construct the evaluation text
-    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The sentiment of the written evaluation will be ${tone}. The student generally performed according to these measurements: ${scores.join(', ')}.`;
-
-    // Output the evaluation
-    document.getElementById('evaluationOutput').innerText = evaluationText;
+document.addEventListener('DOMContentLoaded', () => {
+    initializeDropdown('studentName', 'Select Student');
+    initializeDropdown('teacherName', 'Select Teacher');
+    initializeDropdown('tone', 'Select Tone');
+    document.getElementById('generateEvaluation').addEventListener('click', generateEvaluation);
 });
+
+function initializeDropdown(dropdownId, defaultText) {
+    const labelId = `listbox-label-${dropdownId}`;
+    const dropdown = document.getElementById(dropdownId);
+    const button = dropdown.querySelector('button');
+    const list = dropdown.querySelector('ul');
+    const options = list.querySelectorAll('li');
+
+    button.innerText = defaultText;
+
+    options.forEach(option => {
+        option.addEventListener('click', () => {
+            button.innerText = option.textContent;
+            list.classList.add('hidden'); // Hide the list after selection
+        });
+    });
+
+    button.addEventListener('click', () => {
+        list.classList.toggle('hidden'); // Toggle list visibility
+    });
+}
+
+function generateEvaluation() {
+    const studentName = document.querySelector('#listbox-label-student + div button').textContent;
+    const teacherName = document.querySelector('#listbox-label-teacher + div button').textContent;
+    const tone = document.querySelector('#listbox-label-tone + div button').textContent;
+
+    // Assuming you have logic to gather scores from the matrix
+    const scores = '...'; // Replace this with your actual score gathering logic
+
+    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The sentiment of the written evaluation will be ${tone}. The student generally performed according to these measurements: ${scores}.`;
+
+    document.getElementById('evaluationOutput').innerText = evaluationText;
+}
+
 </script>
