@@ -281,7 +281,7 @@ document.getElementById('generateEvaluation').addEventListener('click', function
     const scores = Array.from(document.querySelectorAll('#evaluationMatrix .score')).map(select => select.value);
 
     // Construct the evaluation text
-    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The sentiment of the written evaluation will be ${tone}. The student generally performed according to these measurements: ${scores.join(', ')}. Teacher's notes: ${teacherNotes}`;
+    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The tone and sentimate of this written evaluation should be ${tone}. The student generally performed according to these measurements: ${scores.join(', ')}. Teacher's notes: ${teacherNotes}`;
 
     // Output the evaluation
     document.getElementById('evaluationOutput').innerText = evaluationText;
