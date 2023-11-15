@@ -302,10 +302,18 @@ function generateEvaluation() {
     const term = document.querySelector('#listbox-label-term + div button').textContent;
     const teacherNotes = document.getElementById('teacherNotes').value;
 
-    let evaluationText = `Narrative evaluation for ${term}, student name ${studentName}, from ${teacherName}. The sentiment of the written evaluation will be ${tone}. The student generally performed according to these measurements: ... Teacher's notes: ${teacherNotes}`;
+    // Construct key area scores string
+    let keyAreaScores = [
+        `Writing/Reading: ${document.getElementById('writingReadingScore').value}`,
+        `Math Understanding/Application: ${document.getElementById('mathUnderstandingScore').value}`,
+        // Add other key areas here
+    ].join('\n');
+
+    let evaluationText = `Narrative evaluation for ${term}, student name ${studentName}, from ${teacherName}. The sentiment of the written evaluation will be ${tone}.\n\n${keyAreaScores}\n\nTeacher's notes: ${teacherNotes}`;
 
     document.getElementById('evaluationOutput').innerText = evaluationText;
 }
+
 
 // Don't forget to initialize the dropdown for the term
 initializeDropdown('term', 'Select Term');
