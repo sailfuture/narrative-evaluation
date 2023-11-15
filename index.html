@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Evaluation Generator</title>
+    <!-- Add CSS link here -->
+</head>
+<body>
+    <h2>Student Evaluation Form</h2>
+    <div>
+        <label>Student Name:</label>
+        <input type="text" id="studentName" />
+    </div>
+    <div>
+        <label>Teacher Name:</label>
+        <input type="text" id="teacherName" />
+    </div>
+
+    <table id="evaluationMatrix">
+        <!-- Table Headers -->
+        <tr>
+            <th>Key Area</th>
+            <th>Subcategory</th>
+            <th>Scoring Criteria</th>
+            <th>Score</th>
+        </tr>
+
+        <!-- Each row corresponds to a category with a dropdown for scores -->
+        <!-- Repeat this structure for each category -->
+        <tr>
+            <td>Academics</td>
+            <td>Writing/Reading</td>
+            <td>Proficiency Level</td>
+            <td>
+                <select class="score">
+                    <option value="Excellent">Excellent</option>
+                    <option value="Good">Good</option>
+                    <option value="Fair">Fair</option>
+                    <option value="Needs Improvement">Needs Improvement</option>
+                </select>
+            </td>
+        </tr>
+        <!-- Add other categories in similar fashion -->
+    </table>
+
+    <div>
+        <button id="generateEvaluation">Generate Evaluation</button>
+    </div>
+
+    <div id="evaluationOutput"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<script>
+document.getElementById('generateEvaluation').addEventListener('click', function() {
+    const studentName = document.getElementById('studentName').value;
+    const teacherName = document.getElementById('teacherName').value;
+
+    // Gather scores from each row in the matrix
+    const scores = Array.from(document.querySelectorAll('#evaluationMatrix .score')).map(select => select.value);
+
+    // Construct the evaluation text
+    let evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName}. The student generally performed according to these measurements: ${scores.join(', ')}.`;
+
+    // Output the evaluation
+    document.getElementById('evaluationOutput').innerText = evaluationText;
+});
+</script>
