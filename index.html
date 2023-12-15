@@ -262,68 +262,56 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
 <button id="copyButton" style="display: none;" class="btn btn-success" onclick="copyToClipboard()">Copy Prompt</button>
 </div>
 
-    <!-- Linking the JavaScript file -->
-    <script>
-        function generateEvaluation() {
-    // Get values from the form
-    var studentName = document.getElementById("studentName").value;
-    var teacherName = document.getElementById("teacherName").value;
-    var term = document.getElementById("term").value;
-    var writingReading = document.getElementById("writingReading").value;
-    var math = document.getElementById("math").value;
-    var handson = document.getElementById("handson").value;
-    var attendance = document.getElementById("attendance").value;
-    var timemanagement = document.getElementById("timemanagement").value;
-    var effort = document.getElementById("effort").value;
-    var maturity = document.getElementById("maturity").value;
-    var conduct = document.getElementById("conduct").value;
-    var teacher = document.getElementById("teacher").value;
-    var peers = document.getElementById("peers").value;
-    // ...get other criteria values similarly
+<script>
+    function generateEvaluation(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
 
-    var tone = document.getElementById("tone").value;
-    var teacherNotes = document.getElementById("teacherNotes").value;
+        // Get values from the form
+        var studentName = document.getElementById("studentName").value;
+        var teacherName = document.getElementById("teacherName").value;
+        var term = document.getElementById("term").value;
+        var writingReading = document.getElementById("writingReading").value;
+        var math = document.getElementById("math").value;
+        var handson = document.getElementById("handson").value;
+        var attendance = document.getElementById("attendance").value;
+        var timemanagement = document.getElementById("timemanagement").value;
+        var effort = document.getElementById("effort").value;
+        var maturity = document.getElementById("maturity").value;
+        var conduct = document.getElementById("conduct").value;
+        var teacher = document.getElementById("teacher").value;
+        var peers = document.getElementById("peers").value;
+        // ...get other criteria values similarly
 
-    // Construct the evaluation text
-    var evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName} during Term ${term}. The tone and sentiment of the evaluation should be written in the following ${tone}. Here is a general overview of the student's performance: \n\n`;
-    evaluationText += `Writing/Reading Proficiency Level: ${writingReading}\n`;
-    evaluationText += `Math	Understanding/Application: ${math}\n`;
-    evaluationText += `Writing/Reading Proficiency Level: ${writingReading}\n`;
-    evaluationText += `Hands-On Learning: ${handson}\n`;
-    evaluationText += `Attendance Consistency & Punctuality: ${attendance}\n`;
-    evaluationText += `Time Management: ${timemanagement}\n`;
-    evaluationText += `Effort Consistency & Quality: ${effort}\n`;
-    evaluationText += `Maturity Level: ${maturity}\n`;
-    evaluationText += `Conduct Adherence to Rules: ${conduct}\n`;
-    evaluationText += `Peer Interaction	Quality of Interaction: ${peers}\n`;
-    evaluationText += `Teacher Interaction: ${teacher}\n`;
+        var tone = document.getElementById("tone").value;
+        var teacherNotes = document.getElementById("teacherNotes").value;
 
-    evaluationText += `\nUse the following specific notes and teacher feedback to guide and craft the evaluation: ${teacherNotes}`;
+        // Construct the evaluation text
+        var evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName} during Term ${term}. The tone and sentiment of the evaluation should be written in the following ${tone}. Here is a general overview of the student's performance: \n\n`;
+        evaluationText += `Writing/Reading Proficiency Level: ${writingReading}\n`;
+        evaluationText += `Math Understanding/Application: ${math}\n`;
+        evaluationText += `Hands-On Learning: ${handson}\n`;
+        evaluationText += `Attendance Consistency & Punctuality: ${attendance}\n`;
+        evaluationText += `Time Management: ${timemanagement}\n`;
+        evaluationText += `Effort Consistency & Quality: ${effort}\n`;
+        evaluationText += `Maturity Level: ${maturity}\n`;
+        evaluationText += `Conduct Adherence to Rules: ${conduct}\n`;
+        evaluationText += `Peer Interaction Quality of Interaction: ${peers}\n`;
+        evaluationText += `Teacher Interaction: ${teacher}\n`;
 
-    // Display the evaluation
-    document.getElementById("evaluationOutput").innerHTML = evaluationText.replace(/\n/g, "<br>");
+        evaluationText += `\nUse the following specific notes and teacher feedback to guide and craft the evaluation: ${teacherNotes}`;
 
-// Show the copy button
-document.getElementById("copyButton").style.display = "block";
-}
+        // Display the evaluation
+        document.getElementById("evaluationOutput").innerHTML = evaluationText.replace(/\n/g, "<br>");
 
-function copyToClipboard() {
-// Create a textarea element to copy from
-var textArea = document.createElement("textarea");
-textArea.value = document.getElementById("evaluationOutput").innerText;
-document.body.appendChild(textArea);
+        // Show the copy button
+        document.getElementById("copyButton").style.display = "block";
+    }
 
-// Select and copy the text
-textArea.select();
-textArea.setSelectionRange(0, 99999); // For mobile devices
-document.execCommand("copy");
-
-// Remove the textarea element
-document.body.removeChild(textArea);
-
-// Optional: Show a message that the text was copied
-alert("Prompt copied to clipboard!");
-}
+    // Attach the event listener to the form submission
+    document.getElementById("evaluationForm").addEventListener("submit", generateEvaluation);
 </script>
+
+
 </body>
 </html>
