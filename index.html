@@ -310,6 +310,27 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
 
     // Attach the event listener to the form submission
     document.getElementById("evaluationForm").addEventListener("submit", generateEvaluation);
+
+    function copyToClipboard() {
+        // Create a textarea element to copy from
+        var textArea = document.createElement("textarea");
+        
+        // Get the text from the evaluationOutput element and replace HTML line breaks with regular line breaks
+        textArea.value = document.getElementById("evaluationOutput").innerText.replace(/<br>/g, "\n");
+        
+        document.body.appendChild(textArea);
+
+        // Select and copy the text
+        textArea.select();
+        textArea.setSelectionRange(0, 99999); // For mobile devices
+        document.execCommand("copy");
+
+        // Remove the textarea element
+        document.body.removeChild(textArea);
+
+        // Optional: Show a message that the text was copied
+        alert("Prompt copied to clipboard!");
+    }
 </script>
 
 
