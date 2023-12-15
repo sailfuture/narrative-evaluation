@@ -269,10 +269,21 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
     <h1 class="text-2xl font-bold mb-6">Student Evaluation Prompt Generator</h1>
     <form id="evaluationForm" class="space-y-4">
         <!-- Student Name -->
+
+        <div class="sm:col-span-3">
+            <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Country</label>
+            <div class="mt-2">
+              <select id="country" name="country" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6">
+                <option>United States</option>
+                <option>Canada</option>
+                <option>Mexico</option>
+              </select>
+            </div>
+          </div>
+
         <div>
-            <div class="mt-2.5">
             <label class="block text-sm font-medium text-gray-700" for="studentName">Student Name:</label>
-            <select id="studentName" class="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <select id="studentName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
                 <option value="" disabled selected hidden>Select Student</option>
                 <option value="Arnie Sillins">Arnie Sillins</option>
                 <option value="Dareeon Booth">Dareeon Booth</option>
@@ -336,13 +347,72 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
                 <option value="Larry Parker">Larry Parker</option>
             </select>
         </div>
-    </div>
 
         <!-- Teacher Name -->
         <div>
             <label class="block text-sm font-medium text-gray-700" for="teacherName">Teacher Name:</label>
             <select id="teacherName" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
-                <!-- Options... -->
+                <option value="" disabled selected hidden>Select Student</option>
+                <option value="Arnie Sillins">Arnie Sillins</option>
+                <option value="Dareeon Booth">Dareeon Booth</option>
+                <option value="Frederick Johnson">Frederick Johnson</option>
+                <option value="Jordan Kossler">Jordan Kossler</option>
+                <option value="Pedro Garcia">Pedro Garcia</option>
+                <option value="Jeremiah King">Jeremiah King</option>
+                <option value="Mason Smith">Mason Smith</option>
+                <option value="Careem Parfitt">Careem Parfitt</option>
+                <option value="Daquelon Brown">Daquelon Brown</option>
+                <option value="Jayden Keller">Jayden Keller</option>
+                <option value="Latrez Madison">Latrez Madison</option>
+                <option value="Roshad Smith">Roshad Smith</option>
+                <option value="Reginald Booth">Reginald Booth</option>
+                <option value="Anthony Wohlford">Anthony Wohlford</option>
+                <option value="Cayden Reynolds">Cayden Reynolds</option>
+                <option value="Gabrielle Roberts">Gabrielle Roberts</option>
+                <option value="Earl Moeller">Earl Moeller</option>
+                <option value="Dai'quan Carbart">Dai'quan Carbart</option>
+                <option value="Carla Ortiz">Carla Ortiz</option>
+                <option value="Amideus Kayne">Amideus Kayne</option>
+                <option value="Blaine Lubotina">Blaine Lubotina</option>
+                <option value="Brandon Spitzer">Brandon Spitzer</option>
+                <option value="Brince Johnson">Brince Johnson</option>
+                <option value="Deyah Derosier">Deyah Derosier</option>
+                <option value="Devin Mayo">Devin Mayo</option>
+                <option value="Elijah Ryan-Hallam">Elijah Ryan-Hallam</option>
+                <option value="Cale Meitzler">Cale Meitzler</option>
+                <option value="Camron Reynolds">Camron Reynolds</option>
+                <option value="Zachary Hanna">Zachary Hanna</option>
+                <option value="Malondea Williams">Malondea Williams</option>
+                <option value="Marvellous Hardemon">Marvellous Hardemon</option>
+                <option value="Matthew McKenzie">Matthew McKenzie</option>
+                <option value="Rajon Green">Rajon Green</option>
+                <option value="Connor Young">Connor Young</option>
+                <option value="Brian Best">Brian Best</option>
+                <option value="Dana Evans">Dana Evans</option>
+                <option value="Jerome Northern">Jerome Northern</option>
+                <option value="Kadin Adcock">Kadin Adcock</option>
+                <option value="Aleah Rodriguez">Aleah Rodriguez</option>
+                <option value="Anthony Sinanovic">Anthony Sinanovic</option>
+                <option value="Dominic Johnson">Dominic Johnson</option>
+                <option value="Jamarion Pitts">Jamarion Pitts</option>
+                <option value="Kamya Green">Kamya Green</option>
+                <option value="Khai Tran">Khai Tran</option>
+                <option value="Michael Damjanovic">Michael Damjanovic</option>
+                <option value="Robert Preston">Robert Preston</option>
+                <option value="Alexander Delarosa">Alexander Delarosa</option>
+                <option value="Chase Sauvageot">Chase Sauvageot</option>
+                <option value="Gregory Brown">Gregory Brown</option>
+                <option value="Justin Skinner">Justin Skinner</option>
+                <option value="La’Mya Fulwood">La’Mya Fulwood</option>
+                <option value="Robert Bias">Robert Bias</option>
+                <option value="Jamin Lynch">Jamin Lynch</option>
+                <option value="Michael Lamb">Michael Lamb</option>
+                <option value="Noah Grega">Noah Grega</option>
+                <option value="Ethan Dragon">Ethan Dragon</option>
+                <option value="Stephen Harper">Stephen Harper</option>
+                <option value="Jermaine Jones">Jermaine Jones</option>
+                <option value="Kevin Mojica-Lopez">Kevin Mojica-Lopez</option>
+                <option value="Larry Parker">Larry Parker</option>
             </select>
         </div>
 
