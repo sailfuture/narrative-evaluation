@@ -113,16 +113,49 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
 
         <!-- Dropdowns for each evaluation criteria -->
         <!-- Example for Writing/Reading Proficiency -->
-        <div>
-        <label>Writing/Reading:</label>
-        <select id="writingReading">
-            <option value="" disabled selected hidden>Select</option>
-            <option value="Excellent">Excellent</option>
-            <option value="Good">Good</option>
-            <option value="Fair">Fair</option>
-            <option value="Needs Improvement">Needs Improvement</option>
-        </select>
+<!-- Writing/Reading Detailed Feedback Section with Checkboxes -->
+<div>
+    <label>Writing/Reading Detailed Feedback:</label>
+    <div class="row">
+        <!-- Column 1 -->
+        <div class="col">
+            <input type="checkbox" id="feedback1" name="feedback" value="Produces insightful, original, and sophisticated written work.">
+            <label for="feedback1">Produces insightful, original, and sophisticated written work.</label><br>
+            <input type="checkbox" id="feedback2" name="feedback" value="Demonstrates superior comprehension and critical analysis of complex texts.">
+            <label for="feedback2">Demonstrates superior comprehension and critical analysis of complex texts.</label><br>
+            <input type="checkbox" id="feedback3" name="feedback" value="Exhibits a nuanced understanding of different genres and styles.">
+            <label for="feedback3">Exhibits a nuanced understanding of different genres and styles.</label><br>
+            <input type="checkbox" id="feedback4" name="feedback" value="Consistently writes clear, organized, and thoughtful essays.">
+            <label for="feedback4">Consistently writes clear, organized, and thoughtful essays.</label><br>
+            <input type="checkbox" id="feedback5" name="feedback" value="Shows strong comprehension of challenging texts, making relevant and insightful connections.">
+            <label for="feedback5">Shows strong comprehension of challenging texts, making relevant and insightful connections.</label><br>
+        </div>
+        <!-- Column 2 -->
+        <div class="col">
+            <input type="checkbox" id="feedback6" name="feedback" value="Uses advanced vocabulary and varied sentence structures effectively.">
+            <label for="feedback6">Uses advanced vocabulary and varied sentence structures effectively.</label><br>
+            <input type="checkbox" id="feedback7" name="feedback" value="Writes coherent and structured essays with a clear argument or narrative.">
+            <label for="feedback7">Writes coherent and structured essays with a clear argument or narrative.</label><br>
+            <input type="checkbox" id="feedback8" name="feedback" value="Understands and interprets texts accurately, identifying main ideas and key details.">
+            <label for="feedback8">Understands and interprets texts accurately, identifying main ideas and key details.</label><br>
+            <input type="checkbox" id="feedback9" name="feedback" value="Demonstrates a good grasp of grammar and conventions of standard written English.">
+            <label for="feedback9">Demonstrates a good grasp of grammar and conventions of standard written English.</label><br>
+        </div>
+        <!-- Column 3 -->
+        <div class="col">
+            <input type="checkbox" id="feedback10" name="feedback" value="Produces basic essays with some organization but may lack clarity or detail.">
+            <label for="feedback10">Produces basic essays with some organization but may lack clarity or detail.</label><br>
+            <input type="checkbox" id="feedback11" name="feedback" value="Comprehends texts at a surface level but struggles with more complex ideas or inferences.">
+            <label for="feedback11">Comprehends texts at a surface level but struggles with more complex ideas or inferences.</label><br>
+            <input type="checkbox" id="feedback12" name="feedback" value="Displays an emerging understanding of grammar and vocabulary but makes frequent errors.">
+            <label for="feedback12">Displays an emerging understanding of grammar and vocabulary but makes frequent errors.</label><br>
+            <input type="checkbox" id="feedback13" name="feedback" value="Writes simple, short texts with limited coherence or organization.">
+            <label for="feedback13">Writes simple, short texts with limited coherence or organization.</label><br>
+            <!-- Add more checkboxes as needed -->
+        </div>
     </div>
+</div>
+
 
         <div>
         <label>Math	Understanding/Application</label>
@@ -245,7 +278,7 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
         </div>
 
         <!-- Submission button -->
-        <button class="btn btn-primary" onclick="generateEvaluation()">Generate Evaluation</button>
+        <button type="button" class="btn btn-primary" onclick="generateEvaluation(event)">Generate Evaluation</button>
     </form>
 </div>
 
@@ -258,72 +291,55 @@ https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.m
     </div>
   </div>
 
-<!-- Button to copy the generated evaluation -->
-<button id="copyButton" style="display: none;" class="btn btn-success" onclick="copyToClipboard()">Copy Prompt</button>
-</div>
+<!-- Submission button -->
 
-    <!-- Linking the JavaScript file -->
-    <script>
-        function generateEvaluation() {
-    // Get values from the form
-    var studentName = document.getElementById("studentName").value;
-    var teacherName = document.getElementById("teacherName").value;
-    var term = document.getElementById("term").value;
-    var writingReading = document.getElementById("writingReading").value;
-    var math = document.getElementById("math").value;
-    var handson = document.getElementById("handson").value;
-    var attendance = document.getElementById("attendance").value;
-    var timemanagement = document.getElementById("timemanagement").value;
-    var effort = document.getElementById("effort").value;
-    var maturity = document.getElementById("maturity").value;
-    var conduct = document.getElementById("conduct").value;
-    var teacher = document.getElementById("teacher").value;
-    var peers = document.getElementById("peers").value;
-    // ...get other criteria values similarly
 
-    var tone = document.getElementById("tone").value;
-    var teacherNotes = document.getElementById("teacherNotes").value;
+<!-- Linking the JavaScript file -->
+<script>
+    function generateEvaluation(event) {
+        // Prevent default form submission behavior
+        event.preventDefault();
 
-    // Construct the evaluation text
-    var evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName} during Term ${term}. The tone and sentiment of the evaluation should be written in the following ${tone}. Here is a general overview of the student's performance: \n\n`;
-    evaluationText += `Writing/Reading Proficiency Level: ${writingReading}\n`;
-    evaluationText += `Math	Understanding/Application: ${math}\n`;
-    evaluationText += `Writing/Reading Proficiency Level: ${writingReading}\n`;
-    evaluationText += `Hands-On Learning: ${handson}\n`;
-    evaluationText += `Attendance Consistency & Punctuality: ${attendance}\n`;
-    evaluationText += `Time Management: ${timemanagement}\n`;
-    evaluationText += `Effort Consistency & Quality: ${effort}\n`;
-    evaluationText += `Maturity Level: ${maturity}\n`;
-    evaluationText += `Conduct Adherence to Rules: ${conduct}\n`;
-    evaluationText += `Peer Interaction	Quality of Interaction: ${peers}\n`;
-    evaluationText += `Teacher Interaction: ${teacher}\n`;
+        // Get values from the form
+        var studentName = document.getElementById("studentName").value;
+        var teacherName = document.getElementById("teacherName").value;
+        var term = document.getElementById("term").value;
+        var math = document.getElementById("math").value;
+        var handson = document.getElementById("handson").value;
+        var attendance = document.getElementById("attendance").value;
+        var timemanagement = document.getElementById("timemanagement").value;
+        var effort = document.getElementById("effort").value;
+        var maturity = document.getElementById("maturity").value;
+        var conduct = document.getElementById("conduct").value;
+        var peers = document.getElementById("peers").value;
+        var tone = document.getElementById("tone").value;
+        var teacherNotes = document.getElementById("teacherNotes").value;
 
-    evaluationText += `\nUse the following specific notes and teacher feedback to guide and craft the evaluation: ${teacherNotes}`;
+        // Get checked options from Writing/Reading Detailed Feedback
+        var feedbackOptions = document.querySelectorAll('input[name="feedback"]:checked');
+        var detailedFeedback = Array.from(feedbackOptions).map(option => option.value).join('\n');
 
-    // Display the evaluation
-    document.getElementById("evaluationOutput").innerHTML = evaluationText.replace(/\n/g, "<br>");
+        // Construct the evaluation text
+        var evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName} during Term ${term}. The tone and sentiment of the evaluation should be written in the following ${tone}. Here is a general overview of the student's performance: \n\n`;
+        evaluationText += `Writing/Reading Detailed Feedback:\n${detailedFeedback}\n`;
+        evaluationText += `Math Understanding/Application: ${math}\n`;
+        evaluationText += `Hands-On Learning: ${handson}\n`;
+        evaluationText += `Attendance Consistency & Punctuality: ${attendance}\n`;
+        evaluationText += `Time Management: ${timemanagement}\n`;
+        evaluationText += `Effort Consistency & Quality: ${effort}\n`;
+        evaluationText += `Maturity Level: ${maturity}\n`;
+        evaluationText += `Conduct Adherence to Rules: ${conduct}\n`;
+        evaluationText += `Peer Interaction Quality of Interaction: ${peers}\n`;
+        evaluationText += `Teacher Interaction: ${teacher}\n`;
+        evaluationText += `\nUse the following specific notes and teacher feedback to guide and craft the evaluation: ${teacherNotes}`;
 
-// Show the copy button
-document.getElementById("copyButton").style.display = "block";
-}
+        // Display the evaluation
+        document.getElementById("evaluationOutput").innerHTML = evaluationText.replace(/\n/g, "<br>");
 
-function copyToClipboard() {
-// Create a textarea element to copy from
-var textArea = document.createElement("textarea");
-textArea.value = document.getElementById("evaluationOutput").innerText;
-document.body.appendChild(textArea);
-
-// Select and copy the text
-textArea.select();
-textArea.setSelectionRange(0, 99999); // For mobile devices
-document.execCommand("copy");
-
-// Remove the textarea element
-document.body.removeChild(textArea);
-
-// Optional: Show a message that the text was copied
-alert("Prompt copied to clipboard!");
-}
+        // Show the copy button
+        document.getElementById("copyButton").style.display = "block";
+    }
 </script>
+
 </body>
 </html>
