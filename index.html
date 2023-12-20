@@ -216,24 +216,17 @@
 function generateEvaluation(event) {
     event.preventDefault();
 
-    var studentName = document.getElementById("studentName").value;
-    var teacherName = document.getElementById("teacherName").value;
-    var term = document.getElementById("term").value;
-
-    // Define or remove references to 'math', 'handson', etc.
-
-    var attendance = document.getElementById("attendance").value;
-    var conduct = document.getElementById("conduct").value;
-    var peers = document.getElementById("peers").value;
-    var tone = document.getElementById("tone").value;
+    // Get the selected option's text (not value) from each dropdown
+    var studentName = document.getElementById("studentName").selectedOptions[0].text;
+    var teacherName = document.getElementById("teacherName").selectedOptions[0].text;
+    var term = document.getElementById("term").selectedOptions[0].text;
+    var attendance = document.getElementById("attendance").selectedOptions[0].text;
+    var conduct = document.getElementById("conduct").selectedOptions[0].text;
+    var peers = document.getElementById("peers").selectedOptions[0].text;
+    var tone = document.getElementById("tone").selectedOptions[0].text;
     var teacherNotes = document.getElementById("teacherNotes").value;
 
-    // Handle 'feedback' elements if they exist
-
-    var evaluationText = `Narrative evaluation for student name ${studentName}, from ${teacherName} during Term ${term}. The tone and sentiment of the evaluation should be written in the following ${tone}. Here is a general overview of the student's performance: \n\n`;
-    // Add or remove the following lines as necessary
-    // evaluationText += `Math Understanding/Application: ${math}\n`;
-    // evaluationText += `Hands-On Learning: ${handson}\n`;
+    var evaluationText = `Narrative evaluation for student ${studentName}, from ${teacherName} during ${term}. The tone and sentiment of the evaluation should be written in the following manner: ${tone}. Here is a general overview of the student's performance: \n\n`;
     evaluationText += `Attendance Consistency & Punctuality: ${attendance}\n`;
     evaluationText += `Conduct Adherence to Rules: ${conduct}\n`;
     evaluationText += `Peer Interaction Quality of Interaction: ${peers}\n`;
@@ -241,6 +234,7 @@ function generateEvaluation(event) {
 
     document.getElementById("evaluationOutput").innerHTML = evaluationText.replace(/\n/g, "<br>");
 }
+
 
 // Correct and integrate the copyEvaluationToClipboard function
 function copyEvaluationToClipboard() {
